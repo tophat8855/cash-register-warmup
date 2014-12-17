@@ -1,17 +1,15 @@
 class CashRegister
-  def initialize
-    @balance = 0
+  attr_reader :total
+
+  def initialize(total = 0)
+    @total = total
   end
 
   def purchase(amount)
-    @balance = (@balance.to_f + amount).round(2)
-  end
-
-  def total
-    @balance
+    @total = (@total + amount).round(2)
   end
 
   def pay(amount)
-    @balance = (@balance.to_f - amount).round(2)
+    @total = (@total - amount).round(2)
   end
 end
